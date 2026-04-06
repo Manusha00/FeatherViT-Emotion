@@ -1,0 +1,32 @@
+experiment:
+  name: "feathervit_emotion_xxs_dog_m3_mps_scratch"
+  model: "FeatherViT-Emotion-XXS"
+  training_mode: "from_scratch"
+
+data:
+  train_dir: "datasets/dog_emotion/train"
+  val_dir: "datasets/dog_emotion/valid"
+  test_dir: "datasets/dog_emotion/test"
+  num_classes: 4
+  img_size: 224
+
+hardware:
+  device: "mps"
+  num_workers: 4
+  amp: false
+
+optimization:
+  epochs: 80
+  batch_size: 64
+  lr: 0.0005
+  weight_decay: 0.05
+  label_smoothing: 0.1
+  dropout: 0.2
+  seed: 42
+
+validation:
+  val_every: 1
+
+output:
+  output_dir: "runs/feathervit_emotion_xxs_dog_m3_mps_scratch"
+  save_every: 1
